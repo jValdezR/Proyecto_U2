@@ -8,24 +8,20 @@ class Usuario(AbstractUser):
     telefono = models.CharField(default="", max_length=10)
     imagen = models.ImageField(default="", null=True, blank=True)
     rol = models.CharField(default="", max_length=255)
-    def __str__(self):
-        return self.pk
-
+# El modelo Developer será la tabla que almacene la informacion de las empresas o usuarios desarrolladores, la cual esta'ra ligada al usuario que la haya creado.
 class Developer(models.Model):
   id_developer = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
   name = models.CharField(max_length=255, default="")
   description = models.TextField(max_length=255)
   date = models.DateTimeField(auto_now_add=True)
-  def __str__(self):
-      return self.pk
-
+# El modelo App será la tabla que almacene la informacion de una aplicacion desarrollada por un Developer.
 class App(models.Model):
   authorApp = models.ForeignKey(Developer, on_delete=models.CASCADE)
   title = models.CharField(default="", max_length=255)
   description = models.TextField(default="Sin descripcion")
+  imageApp = models.ImageField(default="", null=True, blank=True)
   date = models.DateTimeField(auto_now_add=True)
-  def __str__(self):
-      return self.pk
+
 # El modelo Comment será la tabla que almacene los comentarios de los usuarios a las aplicaciones posteadas.
 class Comment(models.Model):
   _0 = 'Muy mala'
@@ -46,5 +42,3 @@ class Comment(models.Model):
   stars = models.CharField(max_length=255, choices=opinion, default=_4)
   comment = models.TextField(default="Sin descripcion")
   date = models.DateTimeField(auto_now_add=True)
-  def __str__(self):
-        return self.pk
