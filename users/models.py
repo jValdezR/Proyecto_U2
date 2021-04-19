@@ -7,7 +7,7 @@ class Usuario(AbstractUser):
     edad = models.PositiveIntegerField(null=True, blank=True)
     telefono = models.CharField(default="", max_length=10)
     imagen = models.ImageField(default="", null=True, blank=True)
-    rol = models.CharField(default="", max_length=255)
+    rol = models.CharField(default="default", max_length=255)
 # El modelo Developer será la tabla que almacene la informacion de las empresas o usuarios desarrolladores, la cual esta'ra ligada al usuario que la haya creado.
 class Developer(models.Model):
   id_developer = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
