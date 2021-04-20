@@ -1,0 +1,29 @@
+{% extends './components/navbar.html' %} {% block title %}Nuevo Comentario{% endblock %} {% load static %}{% block content %}
+<h1 class="text-center">Nuevo Comentario</h1>
+
+<div class="row">
+    <div class="col-md-6" style="margin: 0 auto;">
+        <form action="{% url 'newcomentario' %}">
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="author" name="author" hidden value="{{user.email}}">
+            </div>
+
+            <div class="form-group">
+                <label for="title">Titulo</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="priority">Prioridad</label>
+                <input type="number" class="form-control" id="priority" name="priority">
+            </div>
+            <button type="submit" class="btn btn-primary" style="display: block;margin: 1rem auto;">Agregar</button>
+        </form>
+    </div>
+</div>
+
+{% include './components/footer.html' %} {% endblock content %}

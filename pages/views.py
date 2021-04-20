@@ -92,8 +92,45 @@ def updateApp(request,id):
     }
     return render(request,'home.html',context=json)
 
-def comentarios(request):
+def comentarios(request,id):
+  app = App.objects.get(id=id)
+  cmt = Comment.objects.all()
   json = {
-    "info": Comment.objects.all()
+    "id_app": app.pk,
+    "cmt": cmt
   }
   return render(request,'comentarios.html', context=json)
+
+def createcomentario(request,id):
+  json = {
+    "id_app": id
+  }
+  return render(request, 'createcomentario.html', context=json)
+
+def newcomentario(request):
+  cmt = Comment()
+  cmt.authorComment = request.GET['authorComment']
+  cmt.id_app = request.GET['id_app']
+  cmt.title = request.GET['title']
+  cmt.stars = request.GET['stars']
+  cmt.comment = request.GET['comment']
+  import datetime
+  cmt.date = datetime.datetime.now()
+  cmt.save()
+  json = {
+    'id_app': request.GET['id_app'],
+    'cmt': Comment.objects.all()
+  }
+  return render(request,'comentarios.html', context=json)
+
+  def submit(request):
+    obj = Todo()
+    obj.author = request.GET['author']
+    obj.title = request.GET['title']
+    obj.description = request.GET['description']
+    obj.priority = request.GET['priority']
+    obj.save()
+    json = {
+        "info" : Todo.objects.all()
+    }
+    return render(request,'list.html',context=json)

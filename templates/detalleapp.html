@@ -2,7 +2,7 @@
 
 <h1 class="text-center">{{title}}</h1>
 <div class="card mb-3">
-    <img src="{% static imageApp %}" class="card-img-top" alt="...">
+    <img src="{% static imageApp %}" class="card-img-top" alt="..." style="max-height: 30rem;">
     <div class="card-body">
         <h5 class="card-title">Autor: {{authorApp.name}}</h5>
         <p class="card-text">{{description}}</p>
@@ -10,8 +10,11 @@
     </div>
 </div>
 
-{%if user.rol == developer%}
+{% if user.rol == developer %}
 <button class="btn btn-warning">Editar</button>
 <button class="btn btn-danger">Eliminar</button> {% else %}
-<button class="btn btn-primary"><a href="/comentarios/"
-        style="text-decoration-style: none; text-decoration-line: none; color: white;">Ver comentarios</a></button> {% endif %} {% include './components/footer.html' %} {% endblock content %}
+<button class="btn btn-primary"><a href="/comentarios/{{pk}}"
+        style="text-decoration-style: none; text-decoration-line: none; color: white;">Ver comentarios</a></button>
+<button class="btn btn-success"><a href="/createcomentario/{{pk}}"
+        style="text-decoration-line: none; text-decoration-style: none; color: white;">Escribe tu
+        comentario</a></button> {% endif %} {% include './components/footer.html' %} {% endblock content %}

@@ -1,7 +1,22 @@
 {% extends './components/navbar.html' %} {% block title %}Comentarios{% endblock %} {% load static %}{% block content %}
 <h1>Comentarios</h1>
 
-{% for item in info %}
-<p>{{item.authorComment}}</p>
-<p>{{item.id_app.id}}</p>
-{% endfor %} {% include './components/footer.html' %} {% endblock content %}
+<div class="row">
+
+
+    <div class="col">
+        {% for item in cmt %} {% if item.id_app.id == id_app %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{item.title}}</h5>
+                <p class="card-text">{{item.comment}}</p>
+                <p class="card-text">Escrito por: {{item.authorComment}}</p>
+                <p class="card-text"><small class="text-muted">{{item.date}}</small></p>
+            </div>
+        </div>
+        <br> {% endif %} {% endfor %}
+    </div>
+
+
+</div>
+{% include './components/footer.html' %} {% endblock content %}

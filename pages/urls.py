@@ -13,5 +13,7 @@ urlpatterns = [
     path('changepass/<int:id>',views.changepass,name='changepass'),
     path('updatepass/<int:id>',views.updatepass,name='updatepass'),
     path('detalleapp/<int:id>',views.detalleapp,name='detalleapp'),
-    path('comentarios/',views.comentarios,name='comentarios')
+    path('comentarios/<int:id>',views.comentarios,name='comentarios'),
+    path('createcomentario/<int:id>',views.createcomentario,name='createcomentario'),
+    path('newcomentario/',views.newcomentario,name='newcomentario'),
 ]
