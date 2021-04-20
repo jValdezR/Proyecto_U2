@@ -47,7 +47,7 @@ def updatepass(request,id):
     json = {
         "info" : Usuario.objects.all()
     }
-    return render(request,'user.html',context=json)
+    return render(request,'index.html',context=json)
 
 def about(request):
     return render(request,'about.html')
