@@ -18,5 +18,7 @@ urlpatterns = [
     path('newcomentario/',views.newcomentario,name='newcomentario'),
     path('developer/',views.developer,name='developer'),
     path('newdeveloper/',views.newdeveloper,name='newdeveloper'),
+    path('createapp/',views.createapp,name='createapp'),
+    path('newapp/',views.newapp,name='newapp'),
     
 ]

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import Usuario
+from .models import Usuario, App
 
 class UsuarioCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
@@ -12,3 +12,7 @@ class UsuarioChangeForm(UserChangeForm):
         model = Usuario
         fields = UserChangeForm.Meta.fields
         
+class UploadImageForm(forms.ModelForm):
+    class Meta:
+        model = App
+        fields = ['authorApp', 'imageApp']

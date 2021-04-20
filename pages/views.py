@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 from django.shortcuts import render
 from users.models import *
 from django.http import HttpResponse,JsonResponse
-
+from users.forms import UploadImageForm
 def index(request):
     return render(request,'index.html')
 
@@ -139,4 +139,20 @@ def newdeveloper(request):
   dev.save()
   obj.rol = 'developer'
   obj.save()
+  return render(request, 'home.html')
+
+def createapp(request):
+  form_class = App
+  return render(request, 'createapp.html')
+
+def newapp(request):
+  app = App()
+  dev = Developer.objects.get(id_developer=request.GET['authorApp'])
+  app.authorApp = dev
+  app.title = request.GET['title']
+  app.description = request.GET['description']
+  app.imageApp = 'static/img/bd/app/'+request.GET['imageApp']
+  import datetime
+  app.date = datetime.datetime.now()
+  app.save()
   return render(request, 'home.html')

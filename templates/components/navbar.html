@@ -24,7 +24,7 @@
                     </li>
                     {% if user.rol == 'developer' %}
                     <li class="nav-item">
-                        <a class="nav-link" href="">Nueva App</a>
+                        <a class="nav-link" href="{% url 'createapp' %}">Nueva App</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
