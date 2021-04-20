@@ -133,12 +133,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 
-# from decouple import config
+from decouple import config
 
 EMAIL_HOST =  'smtp.googlemail.com'
-# EMAIL_PORT =  config('PORT_EMAIL', cast=int)
-#EMAIL_HOST_USER = os.environ.get("USER_MAIL", None)
-#EMAIL_HOST_PASSWORD = os.environ.get("USER_MAIL_PASSWORD", None)
+EMAIL_PORT =  587
+EMAIL_HOST_USER = config('USER_MAIL')
+EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
 
 # EMAIL_HOST_USER = config('USER_MAIL')
 # EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
