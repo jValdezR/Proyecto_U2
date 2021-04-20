@@ -6,7 +6,7 @@ from django.db import models
 class Usuario(AbstractUser):
     edad = models.PositiveIntegerField(null=True, blank=True)
     telefono = models.CharField(default="", max_length=10)
-    imagen = models.ImageField(default="", null=True, blank=True)
+    imagen = models.ImageField(default="", null=True, blank=True, upload_to='static/img/bd/user')
     rol = models.CharField(default="default", max_length=255)
 # El modelo Developer será la tabla que almacene la informacion de las empresas o usuarios desarrolladores, la cual esta'ra ligada al usuario que la haya creado.
 class Developer(models.Model):
@@ -19,7 +19,7 @@ class App(models.Model):
   authorApp = models.ForeignKey(Developer, on_delete=models.CASCADE)
   title = models.CharField(default="", max_length=255)
   description = models.TextField(default="Sin descripcion")
-  imageApp = models.ImageField(default="", null=True, blank=True)
+  imageApp = models.ImageField(default="", null=True, blank=True, upload_to='static/img/bd/app')
   date = models.DateTimeField(auto_now_add=True)
 
 # El modelo Comment será la tabla que almacene los comentarios de los usuarios a las aplicaciones posteadas.
