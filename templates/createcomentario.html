@@ -6,20 +6,38 @@
         <form action="{% url 'newcomentario' %}">
 
             <div class="form-group">
-                <input type="text" class="form-control" id="author" name="author" hidden value="{{user.email}}">
+                <input type="text" class="form-control" id="authorcomment" name="authorcomment" hidden value="{{user.pk}}">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="id_app" name="id_app" hidden value="{{id_app}}">
             </div>
 
             <div class="form-group">
                 <label for="title">Titulo</label>
                 <input type="text" class="form-control" id="title" name="title">
             </div>
+
             <div class="form-group">
-                <label for="description">Descripción</label>
-                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                <label for="stars">Calificacion: </label>
+                <select class="form-control" id="stars" name="stars">
+
+          <option>Muy mala</option>
+
+          <option>Puede Mejorar</option>
+
+          <option>Usable</option>
+
+          <option>Buena</option>
+
+          <option selected>Excelente</option>
+
+        </select>
             </div>
+
             <div class="form-group">
-                <label for="priority">Prioridad</label>
-                <input type="number" class="form-control" id="priority" name="priority">
+                <label for="comment">Comentario</label>
+                <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="display: block;margin: 1rem auto;">Agregar</button>
         </form>

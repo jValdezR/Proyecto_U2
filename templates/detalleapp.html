@@ -11,6 +11,8 @@
 </div>
 
 {% if user.rol == developer %}
+<button class="btn btn-primary"><a href="/comentarios/{{pk}}"
+        style="text-decoration-style: none; text-decoration-line: none; color: white;">Ver comentarios</a></button>
 <button class="btn btn-warning">Editar</button>
 <button class="btn btn-danger">Eliminar</button> {% else %}
 <button class="btn btn-primary"><a href="/comentarios/{{pk}}"

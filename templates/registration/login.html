@@ -6,15 +6,16 @@
         {% csrf_token %} {{form.as_p}}
         <button class="btn btn-success" type="submit">Iniciar sesión</button> ó
         <button class="btn btn-success"><a href=""
-        style="text-decoration-line: none; text-decoration-style: none; color: white;">Registrarme</a></button>
+                style="text-decoration-line: none; text-decoration-style: none; color: white;">Registrarme</a></button>
     </form>
     <hr>
     <p>Olvidé el pass porque soy un usuario amnésico?</p>
     <button class=" btn btn-success"><a href=""
-      style="text-decoration-line: none; text-decoration-style: none; color: white;">Restablecer contraseña</a></button>
+            style="text-decoration-line: none; text-decoration-style: none; color: white;">Restablecer
+            contraseña</a></button>
 </div>
 
 
 
 <center><img src="{% static 'static/img/media/cheems_con_palo.jpg' %}" alt=""></center>
-{% include './components/footer.html' %}{% endblock content %}
+{% include '../components/footer.html' %}{% endblock content %}

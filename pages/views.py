@@ -109,8 +109,10 @@ def createcomentario(request,id):
 
 def newcomentario(request):
   cmt = Comment()
-  cmt.authorComment = request.GET['authorComment']
-  cmt.id_app = request.GET['id_app']
+  obj = Usuario.objects.get(id=request.GET['authorcomment'])
+  cmt.authorComment = obj
+  app = App.objects.get(id=request.GET['id_app'])
+  cmt.id_app = app
   cmt.title = request.GET['title']
   cmt.stars = request.GET['stars']
   cmt.comment = request.GET['comment']
@@ -122,15 +124,3 @@ def newcomentario(request):
     'cmt': Comment.objects.all()
   }
   return render(request,'comentarios.html', context=json)
-
-  def submit(request):
-    obj = Todo()
-    obj.author = request.GET['author']
-    obj.title = request.GET['title']
-    obj.description = request.GET['description']
-    obj.priority = request.GET['priority']
-    obj.save()
-    json = {
-        "info" : Todo.objects.all()
-    }
-    return render(request,'list.html',context=json)
