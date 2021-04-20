@@ -1,0 +1,24 @@
+{% extends './components/navbar.html' %} {% block title %}Editar{% endblock %} {% load static %}{% block content %}
+<div class="row">
+    <center>
+        <h1>Actualizar Pass</h1>
+    </center>
+    <div class="col-md-6" style="margin: 0 auto;">
+        <form action="/updatepass/{{user.id}}">
+            <div class="form-group">
+                <label for="Password">Password: </label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+
+            <div class="form-group">
+                <label for="Password2">Re - Password: </label>
+                <input type="password" class="form-control" id="password2" name="password2">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="display: block;margin: 1rem auto;">Actualizar</button>
+        </form>
+    </div>
+    <center><img src="{% static 'static/img/media/baby_doges_eating.jpg' %}" alt="doge" style="width: 40%;"></center>
+</div>
+
+{% include './components/footer.html' %} {% endblock content %}
