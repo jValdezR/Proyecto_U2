@@ -16,4 +16,7 @@ urlpatterns = [
     path('comentarios/<int:id>',views.comentarios,name='comentarios'),
     path('createcomentario/<int:id>',views.createcomentario,name='createcomentario'),
     path('newcomentario/',views.newcomentario,name='newcomentario'),
+    path('developer/',views.developer,name='developer'),
+    path('newdeveloper/',views.newdeveloper,name='newdeveloper'),
+    
 ]

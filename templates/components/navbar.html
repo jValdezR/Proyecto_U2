@@ -22,13 +22,13 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Apps</a>
                     </li>
-                    {% if user.rol == developer %}
+                    {% if user.rol == 'developer' %}
                     <li class="nav-item">
                         <a class="nav-link" href="">Nueva App</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="">Quiero ser developer</a>
+                        <a class="nav-link" href="{% url 'developer' %}">Quiero ser developer</a>
                     </li>
                     {% endif %}
                     <li class="nav-item">

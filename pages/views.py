@@ -124,3 +124,19 @@ def newcomentario(request):
     'cmt': Comment.objects.all()
   }
   return render(request,'comentarios.html', context=json)
+
+def developer(request):
+  return render(request, 'developer.html')
+
+def newdeveloper(request):
+  dev = Developer()
+  obj = Usuario.objects.get(id=request.GET['id_developer'])
+  dev.id_developer = obj
+  dev.name = request.GET['name']
+  dev.description = request.GET['description']
+  import datetime
+  dev.date = datetime.datetime.now()
+  dev.save()
+  obj.rol = 'developer'
+  obj.save()
+  return render(request, 'home.html')
