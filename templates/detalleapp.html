@@ -16,8 +16,10 @@
         comentarios
     </a></button> {% if user == authorApp.id_developer %}
 
-<button class="btn btn-warning">Editar</button>
-<button class="btn btn-danger">Eliminar</button> {% endif %} {% else %}
+<button class="btn btn-warning"><a style="text-decoration-style: none; text-decoration-line: none; color: white;"
+        href=" /editapp/{{pk}} ">Editar</a></button>
+<button class="btn btn-danger"><a href="/deleteapp/{{pk}}"
+        style="text-decoration-line: none; text-decoration-style: none; color: white;">Eliminar</a></button> {% endif %} {% else %}
 <button class="btn btn-primary"><a href="/comentarios/{{pk}}"
         style="text-decoration-style: none; text-decoration-line: none; color: white;">Ver
         comentarios</a></button>

@@ -67,31 +67,6 @@ def detalleapp(request, id):
     }
     return render(request,'detalleapp.html',context=json)
 
-def editApp(request,id):
-    obj = App.objects.get(id=id)
-    json = {
-        "authorApp" : obj.authorApp,
-        "title" : obj.title,
-        "description" : obj.description,
-        "imageApp" : obj.imageApp
-    }
-    return render(request,'edit.html',context=json)
-
-def updateApp(request,id):
-    obj = App(id=id)
-    obj.authorApp = request.GET['authorApp']
-    obj.title = request.GET['title']
-    obj.description = request.GET['description']
-    obj.imageApp = request.GET['imageApp']
-    import datetime
-    updated_at = datetime.datetime.now()
-    obj.created_at = updated_at
-    obj.save()
-    json = {
-        "info" : App.objects.all()
-    }
-    return render(request,'home.html',context=json)
-
 def comentarios(request,id):
   app = App.objects.get(id=id)
   cmt = Comment.objects.all()
@@ -156,3 +131,31 @@ def newapp(request):
   app.date = datetime.datetime.now()
   app.save()
   return render(request, 'home.html')
+
+def deleteapp(request,id):
+    app = App.objects.get(id=id)
+    app.delete()
+    return render(request, 'home.html')
+
+def editapp(request,id):
+    app = App.objects.get(id=id)
+    json = {
+        'info':app
+    }
+    return render(request, 'editapp.html', context=json)
+
+
+def updateapp(request,id):
+    obj = App(id=id)
+    dev = Developer.objects.get(id_developer=request.GET['authorApp'])
+    obj.authorApp = dev
+    obj.title = request.GET['title']
+    obj.description = request.GET['description']
+    obj.imageApp = 'static/img/bd/app/'+request.GET['imageApp']
+    import datetime
+    obj.date = datetime.datetime.now()
+    obj.save()
+    json = {
+        "info" : App.objects.all()
+    }
+    return render(request,'home.html',context=json)

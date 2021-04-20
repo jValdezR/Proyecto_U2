@@ -20,5 +20,7 @@ urlpatterns = [
     path('newdeveloper/',views.newdeveloper,name='newdeveloper'),
     path('createapp/',views.createapp,name='createapp'),
     path('newapp/',views.newapp,name='newapp'),
-    
+    path('deleteapp/<int:id>',views.deleteapp,name='deleteapp'),
+    path('editapp/<int:id>', views.editapp, name="editapp"),
+    path('updateapp/<int:id>', views.updateapp, name="updateapp"),
 ]
