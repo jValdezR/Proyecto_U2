@@ -1,0 +1,7 @@
+{% extends './components/navbar.html' %} {% block title %}Comentarios{% endblock %} {% load static %}{% block content %}
+<h1>Comentarios</h1>
+
+{% for item in info %}
+<p>{{item.authorComment}}</p>
+<p>{{item.id_app.id}}</p>
+{% endfor %} {% include './components/footer.html' %} {% endblock content %}

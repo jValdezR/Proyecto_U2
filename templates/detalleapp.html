@@ -1,0 +1,17 @@
+{% extends './components/navbar.html' %} {% block title %}Editar{% endblock %} {% load static %}{% block content %}
+
+<h1 class="text-center">{{title}}</h1>
+<div class="card mb-3">
+    <img src="{% static imageApp %}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Autor: {{authorApp.name}}</h5>
+        <p class="card-text">{{description}}</p>
+        <p class="card-text"><small class="text-muted">{{date}}</small></p>
+    </div>
+</div>
+
+{%if user.rol == developer%}
+<button class="btn btn-warning">Editar</button>
+<button class="btn btn-danger">Eliminar</button> {% else %}
+<button class="btn btn-primary"><a href="/comentarios/"
+        style="text-decoration-style: none; text-decoration-line: none; color: white;">Ver comentarios</a></button> {% endif %} {% include './components/footer.html' %} {% endblock content %}

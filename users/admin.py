@@ -10,6 +10,7 @@ class UsuarioAdmin(UserAdmin):
     model = Usuario
     list_display = ['email', 'username', 'edad','telefono', 'is_staff',]
 
+
 admin.site.register(Usuario, UsuarioAdmin)
 
 admin.site.register(App)

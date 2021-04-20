@@ -32,14 +32,14 @@
                     </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="">About</a>
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Contacto</a>
+                        <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
                     </li>
                 </ul>
                 <span class="navbar-text">
-                    <p>Bienvenido <a href="" style="text-decoration-style: none;"> {{user.username}}</a>
+                    <p>Bienvenido <a href="{% url 'user' %}" style="text-decoration-style: none;"> {{user.username}}</a>
                         <button class="btn btn-primary"><a
                                 style="text-decoration-style: none; text-decoration: none ;color: white;"
                                 href="{% url 'logout' %}">LogOut</a></button> </p>
