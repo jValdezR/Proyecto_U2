@@ -1,0 +1,28 @@
+{% extends './components/navbar.html' %} {% block title %}Editar{% endblock %} {% load static %}{% block content %}
+
+<h1 class="text-center">{{title}}</h1>
+<div class="card mb-3">
+    <img src="{% static imageApp %}" class="card-img-top" alt="..." style="max-height: 30rem;">
+    <div class="card-body">
+        <h5 class="card-title">Autor: {{authorApp.name}}</h5>
+        <p class="card-text">{{description}}</p>
+        <p class="card-text"><small class="text-muted">{{date}}</small></p>
+    </div>
+</div>
+
+{% if user.rol == 'developer' %}
+<button class="btn btn-primary"><a href="/comentarios/{{pk}}"
+        style="text-decoration-style: none; text-decoration-line: none; color: white;">Ver
+        comentarios
+    </a></button> {% if user == authorApp.id_developer %}
+
+<button class="btn btn-warning"><a style="text-decoration-style: none; text-decoration-line: none; color: white;"
+        href=" /editapp/{{pk}} ">Editar</a></button>
+<button class="btn btn-danger"><a href="/deleteapp/{{pk}}"
+        style="text-decoration-line: none; text-decoration-style: none; color: white;">Eliminar</a></button> {% endif %} {% else %}
+<button class="btn btn-primary"><a href="/comentarios/{{pk}}"
+        style="text-decoration-style: none; text-decoration-line: none; color: white;">Ver
+        comentarios</a></button>
+<button class="btn btn-success"><a href="/createcomentario/{{pk}}"
+        style="text-decoration-line: none; text-decoration-style: none; color: white;">Escribe tu
+        comentario</a></button> {% endif %} {% include './components/footer.html' %} {% endblock content %}

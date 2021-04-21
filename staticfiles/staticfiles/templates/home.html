@@ -1,0 +1,44 @@
+{% extends './components/navbar.html' %} {% load static %} {% block content %}
+<main>
+
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Apps de la semana</h1>
+                <p class="lead text-muted">La programación, es lo más cercano a la magia en nuestros tiempos...</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for item in info %}
+                <div class="col">
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="{% static item.imageApp %}" class="card-img-top" style="max-height: 10rem;" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.title}}</h5>
+                            <p class="card-text">{{item.description}}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Autor: {{item.authorApp.name}}</li>
+                            <li class="list-group-item">Ultima actualizacion: {{item.date}}</li>
+                        </ul>
+                        <div class="card-body">
+                            <center><button class="btn btn-primary"><a href="/detalleapp/{{item.id}}"
+                                        style="text-decoration-line: none; text-decoration-style: none; color: white;">Ver</a></button>
+                            </center>
+                        </div>
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</main>
+{% include './components/footer.html' %} {% endblock content %}

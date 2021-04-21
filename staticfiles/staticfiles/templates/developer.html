@@ -1,0 +1,29 @@
+{% extends './components/navbar.html' %} {% block title %}Editar{% endblock %} {% load static %}{% block content %}
+
+<h1>developer</h1>
+<p>Llena los siguientes campos, acepta los terminos y condiciones y envia este formulario para que podamos analizar la oportunidad de convertirte en un desarrollador.</p>
+
+<div class="row">
+    <div class="col-md-6" style="margin: 0 auto;">
+        <form action="{% url 'newdeveloper' %}">
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="id_developer" name="id_developer" hidden value="{{user.pk}}">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Nombre: </label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descripcion</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="display: block;margin: 1rem auto;">Enviar solicitud</button>
+        </form>
+    </div>
+</div>
+
+{% include './components/footer.html' %} {% endblock content %}

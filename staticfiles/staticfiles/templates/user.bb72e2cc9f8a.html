@@ -1,0 +1,79 @@
+{% extends './components/navbar.html' %} {% load static %} {% block content %}
+<div class="container m-t-70">
+
+    <center>
+        <div class="row justify-content-start m-b-30">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <!-- <i class="fas fa-user-circle fa-5x m-l-110"></i> -->
+                <i class="far fa-user-circle fa-10x m-l-110"></i>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </center>
+
+    <div class="row justify-content-start">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <label class="m-l-200 txtInfoTitulo">Nombre:</label>
+            <label class="m-l-30 txtInfoDesc">{{user.username}}</label>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+
+    <div class="row justify-content-start">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <label class="m-l-200 txtInfoTitulo">Correo:</label>
+            <label class="m-l-38 txtInfoDesc">{{user.email}}</label>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <div class="row justify-content-start">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <label class="m-l-200 txtInfoTitulo">Telefono:</label>
+            <label class="m-l-20 txtInfoDesc">{{user.telefono}}</label>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <div class="row justify-content-start">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <label class="m-l-200 txtInfoTitulo">Edad:</label>
+            <label class="m-l-20 txtInfoDesc">{{user.edad}}</label>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <div class="row justify-content-start">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <label class="m-l-200 txtInfoTitulo">Rol:</label>
+            <label class="m-l-20 txtInfoDesc">{{user.rol}}</label>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <center>
+        <div class="row justify-content-start m-b-30">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <button class="btn btn-warning"><a
+                        style="text-decoration-style: none; text-decoration-line: none; color: black;"
+                        href="/edituser/{{user.id}}">Editar</a></button>
+                <button class="btn btn-danger"><a
+                        style="text-decoration-style: none; text-decoration-line: none; color: black;"
+                        href="/changepass/{{user.id}}">Cambiar
+                        contraseña</a></button>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </center>
+
+</div>
+</div>
+{% include './components/footer.html' %} {% endblock content %}

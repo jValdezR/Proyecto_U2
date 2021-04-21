@@ -1,0 +1,10 @@
+{% extends './components/navbar.html' %} {% load static %} {% block title %}Registrar{% endblock title %} {% block content %}
+
+<h2>Registro</h2>
+<form action="" method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <button class="btn btn-success" type="submit">Registrar</button>
+</form>
+
+<center><img src="{% static 'static/img/media/swole_doge.png' %}" alt="doge"></center>
+{% include './components/footer.html' %} {% endblock content %}
